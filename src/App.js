@@ -50,6 +50,7 @@ export default function App(props) {
       <Form.Group controlId="height">
         <Form.Label>Your height</Form.Label>
         <Form.Control
+          name="height"
           type="text"
           pattern="[0-9]*"
           placeholder="height in centimeters"
@@ -60,6 +61,7 @@ export default function App(props) {
       <Form.Group controlId="weight">
         <Form.Label>Your weight</Form.Label>
         <Form.Control
+          name="weight"
           type="text"
           pattern="[0-9]*"
           placeholder="weight in kilos"
