@@ -6,7 +6,7 @@ import React from 'react'
 import App from '../App'
 import { defineFeature, loadFeature } from 'jest-cucumber';
 
-const feature = loadFeature('./features/bmi_calculator.feature');
+const feature = loadFeature('./src/test/features/bmi_calculator.feature');
 
 defineFeature(feature, test => {
   test('User calculates their BMI', ({ given, when, then }) => {

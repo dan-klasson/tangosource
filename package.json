@@ -28,7 +28,8 @@
     "cucumber": "^5.1.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.8.0",
-    "jest-cucumber": "^1.0.11"
+    "jest-cucumber": "^1.0.11",
+    "react-testing-library": "^5.8.0"
   },
   "jest": {}
 }
