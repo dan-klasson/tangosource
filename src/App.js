@@ -1,42 +1,32 @@
 import React from 'react'
-import { Form } from 'react-bootstrap';
-import useFormInput from './custom/useFormInput'
-import useBmiCalculator from './custom/useBmiCalculator'
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Container, Row, Col } from 'react-bootstrap'
+import BmiForm from './BmiForm'
+import Login from './Login'
+import Logout from './Logout'
+import Register from './Register'
+import AuthenticatedRoute from './AuthenticatedRoute'
+import Header from './Header'
+import './index.css'
 
-export default function App(props) {
-  const weight = useFormInput()
-  const height = useFormInput()
-  const { bmiValue, bmiResult } = useBmiCalculator(weight, height)
+export default function App() {
 
   return (
-    <Form>
-      <Form.Group controlId="height">
-        <Form.Label>Your height</Form.Label>
-        <Form.Control
-          name="height"
-          type="text"
-          pattern="[0-9]*"
-          placeholder="height in centimeters"
-          { ...height }
-        />
-      </Form.Group>
-      <Form.Group controlId="weight">
-        <Form.Label>Your weight</Form.Label>
-        <Form.Control
-          name="weight"
-          type="text"
-          pattern="[0-9]*"
-          placeholder="weight in kilos"
-          { ...weight }
-        />
-      </Form.Group>
-      <div className="bmi-value">
-        Your BMI: { bmiValue }
-      </div>
-      <div className="bmi-conclusion">
-        You are: { bmiResult }
-      </div>
-    </Form>
+    <Router>
+      <Header />
+      <Switch>
+        <Container>
+          <Row>
+            <Col md={{ span: 4, offset: 4 }}>
+              <AuthenticatedRoute exact path="/" component={BmiForm} />
+              <Route exact path="/login" component={ Login } />
+              <Route exact path="/logout" component={ Logout } />
+              <Route exact path="/register" component={ Register } />
+            </Col>
+          </Row>
+        </Container>
+      </Switch>
+    </Router>
   )
+
 }

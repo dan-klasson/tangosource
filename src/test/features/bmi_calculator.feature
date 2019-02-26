@@ -4,6 +4,10 @@ Feature: Body Mass Index
    given the mass and height of the user
 
     Scenario: User calculates their BMI
-        Given the user is logged in
-        When they fill in their weight and height
+        Given they fill in their weight and height
         Then they are presented with their BMI
+
+    Scenario: User logs in
+        Given I'm a registered user
+        When I submit my credentials
+        Then I should be logged in

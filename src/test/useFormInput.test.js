@@ -26,6 +26,7 @@ describe('useFormInput', () => {
   it('handles valid input', () => {
     const e = event('20')
     testHook(() => { return ({value, onChange} = useFormInput())})
+    expect(value).toBe('')
     onChange(e)
     expect(value).toBe('20')
   })
